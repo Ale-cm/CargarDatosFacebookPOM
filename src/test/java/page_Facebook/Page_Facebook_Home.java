@@ -22,8 +22,8 @@ import org.openqa.selenium.By;
 	protected		Robot robot;
 	protected WebDriver driver;
 	private String btn_crearCuenta="//div[@class='_6ltg']/following-sibling::div[3]/child::a[1]";//xpath axes 
-	private String txt_nombre="//input[@name='firstname']";
-	private String txt_apellido="lastname";
+	private String txt_nombre="//input[@name='firstname' or @placeholder='nombre']"; //xpath
+	private String txt_apellido="lastname"; 
 	private String txt_CelOMail="reg_email__";
 	private String txt_CelOMail2="reg_email_confirmation__";
 	private String txt_Clave="password_step_input";
@@ -141,11 +141,11 @@ import org.openqa.selenium.By;
 		driver.findElement(By.name(txt_genero)).sendKeys(genero);
 		
 	}
-	public static void tomaScreenShoot(String nombrePaso, WebDriver driver) throws IOException, HeadlessException, AWTException, InterruptedException {
-
+	public void tomaScreenShoot(String nombrePaso, WebDriver driver) throws IOException, HeadlessException, AWTException, InterruptedException {
+      
 		File screenShot;
 		screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenShot, new File("/TestPageObjectMode1/target"+nombrePaso+"333.png")); // apache commons io
+		FileUtils.copyFile(screenShot, new File("C:\\Users\\Alejandro\\eclipse-workspace\\TestPageObjectMode1\\target\\"+nombrePaso+"333.png")); // apache commons io
 	
 	}
 	
@@ -155,6 +155,7 @@ import org.openqa.selenium.By;
 		 driver.close();	
 		 
 	}
+	
 }
 	
 

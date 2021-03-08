@@ -32,8 +32,8 @@ public class testPage_facebook {
 			face.EscribeDia("3");
 			face.EscribeMes("5");
 			face.EscribeAño("1994");
-			Page_Facebook_Home.tomaScreenShoot("Screen", driver);
-			face.selecciona("mujdr");
+			face.tomaScreenShoot("ScreenAFecha", driver);
+			face.selecciona("Personalizado");
 			face.SelecPronombre("Masculino");
 			face.Genero("bin");
 			Thread.sleep(3333);
