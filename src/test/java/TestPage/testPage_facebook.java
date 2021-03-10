@@ -11,25 +11,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.CapabilityType.ForSeleniumServer;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-
+import atu.testrecorder.ATUTestRecorder;
+import atu.testrecorder.exceptions.ATUTestRecorderException;
 import page_Facebook.AbsWebDriverListenerTest;
 import page_Facebook.Page_Facebook_Home;
 
 public class testPage_facebook   {
 
-	public static void main(String[] args) throws HeadlessException, IOException, AWTException, InterruptedException, InvalidFormatException {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws HeadlessException, IOException, AWTException, InterruptedException, InvalidFormatException, ATUTestRecorderException {
+		ATUTestRecorder grabaVideo= new ATUTestRecorder("C:\\Users\\Alejandro\\eclipse-workspace\\TestPageObjectMode1\\src\\videos\\","videonuevo",false);
 			WebDriver driver;
 			Page_Facebook_Home face=new Page_Facebook_Home ();
 			System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 			
-			
+			grabaVideo.start();
 			EventFiringWebDriver EFWdriver= new EventFiringWebDriver(driver);
 			AbsWebDriverListenerTest weblistener = new AbsWebDriverListenerTest();
 			
 			EFWdriver.register(weblistener);	
 			EFWdriver.get("https://www.facebook.com/");
+			
 			face.iniciarDriver(EFWdriver);
 			face.MaxPantalla(EFWdriver);
 			face.clickCrearCuenta();
@@ -51,7 +53,7 @@ public class testPage_facebook   {
 			
 			
 			
-			
+			grabaVideo.stop();
 			Thread.sleep(4000);
 			System.out.println("Aquí termina");
 			face.FinalizarDriver(driver);
