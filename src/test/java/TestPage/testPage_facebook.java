@@ -19,13 +19,13 @@ import page_Facebook.Page_Facebook_Home;
 public class testPage_facebook   {
 
 	public static void main(String[] args) throws HeadlessException, IOException, AWTException, InterruptedException, InvalidFormatException, ATUTestRecorderException {
-		ATUTestRecorder grabaVideo= new ATUTestRecorder("C:\\Users\\Alejandro\\eclipse-workspace\\TestPageObjectMode1\\src\\videos\\","videonuevo",false);
+	//	ATUTestRecorder grabaVideo= new ATUTestRecorder("C:\\Users\\Alejandro\\eclipse-workspace\\TestPageObjectMode1\\src\\videos\\","videonuevo",false);
 			WebDriver driver;
 			Page_Facebook_Home face=new Page_Facebook_Home ();
 			System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chrome\\chromedriver.exe");
 			driver = new ChromeDriver();
 			
-			grabaVideo.start();
+		//	grabaVideo.start();
 			EventFiringWebDriver EFWdriver= new EventFiringWebDriver(driver);
 			AbsWebDriverListenerTest weblistener = new AbsWebDriverListenerTest();
 			
@@ -53,7 +53,7 @@ public class testPage_facebook   {
 			
 			
 			
-			grabaVideo.stop();
+			//grabaVideo.stop();
 			Thread.sleep(4000);
 			System.out.println("Aquí termina");
 			face.FinalizarDriver(driver);

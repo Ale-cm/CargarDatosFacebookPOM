@@ -1,0 +1,78 @@
+[33mcommit b0500f4515db0df09b9ccd818b1ae537ec86dd12[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: alejandro <54691090+Ale-cm@users.noreply.github.com>
+Date:   Tue Mar 9 21:39:10 2021 -0300
+
+    agregando Grabar evidencia
+
+[1mdiff --git a/evidencia.jpg b/evidencia.jpg[m
+[1mindex 75e8d5e..0d63a5c 100644[m
+Binary files a/evidencia.jpg and b/evidencia.jpg differ
+[1mdiff --git a/src/test/java/TestPage/testPage_facebook.java b/src/test/java/TestPage/testPage_facebook.java[m
+[1mindex 29af04e..3fcb8cf 100644[m
+[1m--- a/src/test/java/TestPage/testPage_facebook.java[m
+[1m+++ b/src/test/java/TestPage/testPage_facebook.java[m
+[36m@@ -11,25 +11,27 @@[m [mimport org.openqa.selenium.chrome.ChromeDriver;[m
+ import org.openqa.selenium.remote.CapabilityType.ForSeleniumServer;[m
+ import org.openqa.selenium.support.events.EventFiringWebDriver;[m
+ [m
+[31m-[m
+[32m+[m[32mimport atu.testrecorder.ATUTestRecorder;[m
+[32m+[m[32mimport atu.testrecorder.exceptions.ATUTestRecorderException;[m
+ import page_Facebook.AbsWebDriverListenerTest;[m
+ import page_Facebook.Page_Facebook_Home;[m
+ [m
+ public class testPage_facebook   {[m
+ [m
+[31m-	public static void main(String[] args) throws HeadlessException, IOException, AWTException, InterruptedException, InvalidFormatException {[m
+[31m-		// TODO Auto-generated method stub[m
+[32m+[m	[32mpublic static void main(String[] args) throws HeadlessException, IOException, AWTException, InterruptedException, InvalidFormatException, ATUTestRecorderException {[m
+[32m+[m		[32mATUTestRecorder grabaVideo= new ATUTestRecorder("C:\\Users\\Alejandro\\eclipse-workspace\\TestPageObjectMode1\\src\\videos\\","videonuevo",false);[m
+ 			WebDriver driver;[m
+ 			Page_Facebook_Home face=new Page_Facebook_Home ();[m
+ 			System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chrome\\chromedriver.exe");[m
+ 			driver = new ChromeDriver();[m
+ 			[m
+[31m-			[m
+[32m+[m			[32mgrabaVideo.start();[m
+ 			EventFiringWebDriver EFWdriver= new EventFiringWebDriver(driver);[m
+ 			AbsWebDriverListenerTest weblistener = new AbsWebDriverListenerTest();[m
+ 			[m
+ 			EFWdriver.register(weblistener);	[m
+ 			EFWdriver.get("https://www.facebook.com/");[m
+[32m+[m[41m			[m
+ 			face.iniciarDriver(EFWdriver);[m
+ 			face.MaxPantalla(EFWdriver);[m
+ 			face.clickCrearCuenta();[m
+[36m@@ -51,7 +53,7 @@[m [mpublic class testPage_facebook   {[m
+ 			[m
+ 			[m
+ 			[m
+[31m-			[m
+[32m+[m			[32mgrabaVideo.stop();[m
+ 			Thread.sleep(4000);[m
+ 			System.out.println("Aquí termina");[m
+ 			face.FinalizarDriver(driver);[m
+[1mdiff --git a/src/videos/videonuevo.mov b/src/videos/videonuevo.mov[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1fdc0f7[m
+Binary files /dev/null and b/src/videos/videonuevo.mov differ
+[1mdiff --git a/target/test-classes/.project b/target/test-classes/.project[m
+[1mnew file mode 100644[m
+[1mindex 0000000..67478bf[m
+[1m--- /dev/null[m
+[1m+++ b/target/test-classes/.project[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<projectDescription>[m
+[32m+[m	[32m<name>test-classes</name>[m
+[32m+[m	[32m<comment></comment>[m
+[32m+[m	[32m<projects>[m
+[32m+[m	[32m</projects>[m
+[32m+[m	[32m<buildSpec>[m
+[32m+[m	[32m</buildSpec>[m
+[32m+[m	[32m<natures>[m
+[32m+[m	[32m</natures>[m
+[32m+[m[32m</projectDescription>[m
+[1mdiff --git a/target/test-classes/TestPage/testPage_facebook.class b/target/test-classes/TestPage/testPage_facebook.class[m
+[1mindex 8c07908..358de47 100644[m
+Binary files a/target/test-classes/TestPage/testPage_facebook.class and b/target/test-classes/TestPage/testPage_facebook.class differ
